@@ -1,0 +1,27 @@
+# Default values for androiddm.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+namespace: apphub
+label: apphub-repo
+
+replicaCount: 1
+
+image:
+  repository: harbor.arfa.wise-paas.com/apphub/apphub-repo-ensaas
+  tag: 1.0.0
+  pullPolicy: Always
+
+imagePullSecrets: 
+  name: regcred
+service:
+  name: apphub-repo
+  label: apphub-repo
+  type: ClusterIP
+  port: 80
+  targetPort: 30001
+
+ingress:
+  name: apphub-repo
+  host: portal-apphub-repo
+
+

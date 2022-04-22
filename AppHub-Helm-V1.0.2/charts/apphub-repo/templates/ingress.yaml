@@ -1,0 +1,18 @@
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ .Values.ingress.name}}
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "1200"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "1200"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "1200"
+    ingress.kubernetes.io/proxy-body-size: "600m"
+spec:
+  rules:
+  - host: {{ .Values.ingress.host }}{{.Values.global.url.host}}
+    http:
+      paths:
+      - backend:
+          serviceName: {{ .Values.service.name }}
+          servicePort: {{ .Values.service.port }}

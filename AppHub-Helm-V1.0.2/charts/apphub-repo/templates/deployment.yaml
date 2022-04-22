@@ -1,0 +1,78 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{.Chart.Name}}
+  labels:
+    app: {{ .Values.label}}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.label}}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.label}}
+    spec:
+      imagePullSecrets:
+        - name: {{ .Values.imagePullSecrets.name}}
+      containers:
+      - name: {{ .Chart.Name }}
+        image: {{ .Values.global.repo.repository }}:{{ .Values.global.repo.tag }}
+        imagePullPolicy: {{ .Values.global.repo.pullPolicy }}
+        ports:
+        - name: http
+          containerPort: 30001
+          protocol: TCP
+        env:
+        - name: deployEnv
+          value: {{ .Values.global.env.type }}
+        - name: appName
+          value: apphub-repo
+        - name: urlprefix
+          value: {{ .Values.ingress.host }}
+        - name: ssoUrl
+          value: {{ .Values.global.ensaasApps.apiSso.internalUrl }}
+        - name: serviceName
+          value: apphub
+        - name: licenseTimer
+          value: '360000'
+        - name: domain
+          value: {{ .Values.global.ensaasApps.ensaas.externalUrl }}
+        - name: apiLicense
+          value: {{ .Values.global.ensaasApps.apiLicense.internalUrl }}
+        - name: pn
+          value: {{ .Values.global.ensaasApps.licenseParam.pn }}
+        - name: ENSAAS_SERVICES
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.global.database.secretName }}
+              key: ENSAAS_SERVICES
+        resources:
+          limits:
+            cpu: 100m     　　
+            memory: 512Mi
+            ephemeral-storage: 1024Mi
+          requests:
+            cpu: 100m
+            memory: 512Mi
+            ephemeral-storage: 1024Mi
+      initContainers:
+      - env:
+        - name: NAMESPACE_NAME
+          value: {{.Release.Namespace}}
+        - name: POD_LABELS
+          value: app=apphub-manager
+        - name: MAX_RETRY
+          value: "120"
+        image: {{ .Values.global.podinit.repository }}:{{ .Values.global.podinit.tag }}
+        imagePullPolicy: IfNotPresent
+        name: pod-dependency
+        resources:
+          limits:
+            cpu: 50m
+            memory: 64Mi
+          requests:
+            cpu: 50m
+            memory: 64Mi
+      

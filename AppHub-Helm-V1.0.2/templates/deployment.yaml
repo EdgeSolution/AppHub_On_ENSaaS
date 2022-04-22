@@ -1,0 +1,89 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{.Chart.Name}}
+  labels:
+    app: {{ .Values.label}}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.label}}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.label}}
+    spec:
+      imagePullSecrets:
+        - name: {{ .Values.imagePullSecrets.name}}
+      volumes:
+       - name: shared-data
+         emptyDir: {}
+      containers:
+      - name: {{ .Chart.Name }}
+        image: {{ .Values.global.manager.repository }}:{{ .Values.global.manager.tag }}
+        imagePullPolicy: {{ .Values.global.manager.pullPolicy }}
+        volumeMounts:
+        - name: shared-data
+          mountPath: /root/adv/vnctoken
+        ports:
+        - name: http
+          containerPort: 8080
+          protocol: TCP
+        env:
+        - name: deployEnv
+          value: {{ .Values.global.env.type }}
+        - name: appName
+          value: apphub
+        - name: urlprefix
+          value: {{ .Values.ingress.host }} 
+        - name: ssoUrl
+          value: {{ .Values.global.ensaasApps.apiSso.internalUrl }}
+        - name: serviceName
+          value: apphub
+        - name: licenseTimer
+          value: '360000'
+        - name: domain
+          value: {{ .Values.global.ensaasApps.ensaas.externalUrl }}
+        - name: apiLicense
+          value: {{ .Values.global.ensaasApps.apiLicense.internalUrl }}
+        - name: dccsUrl
+          value: {{ .Values.global.ensaasApps.apiDccs.externalUrl }}
+        - name: pn
+          value: {{ .Values.global.ensaasApps.licenseParam.pn }}
+        - name: addpn
+          value: {{ .Values.global.ensaasApps.licenseParam.addpn }}
+        - name: ENSAAS_SERVICES
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.global.database.secretName }}
+              key: ENSAAS_SERVICES
+        resources:
+          limits:
+            cpu: 200m     　　
+            memory: 512Mi
+            ephemeral-storage: 1024Mi
+          requests:
+            cpu: 200m
+            memory: 512Mi
+            ephemeral-storage: 1024Mi
+      - name: novnc
+        image: {{ .Values.global.novnc.repository }}:{{ .Values.global.novnc.tag }}
+        imagePullPolicy: {{ .Values.global.novnc.pullPolicy }}
+        volumeMounts:
+        - name: shared-data
+          mountPath: /root/adv/vnctoken
+        ports:
+        - name: novnc
+          containerPort: 9191
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 20m    　　
+            memory: 64M
+            ephemeral-storage: 128M
+          requests:
+            cpu: 20m
+            memory: 64M
+            ephemeral-storage: 128M
+

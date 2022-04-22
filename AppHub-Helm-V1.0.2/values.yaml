@@ -1,0 +1,80 @@
+# Default values for androiddm.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+namespace: apphub
+label: apphub-manager
+
+replicaCount: 1
+
+imagePullSecrets: 
+  name: regcred
+
+service:
+  name: apphub-manager
+  label: apphub-manager
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
+
+novncService:
+  name: novnc
+  label: novnc
+  type: ClusterIP
+  port: 80
+  targetPort: 9191
+
+
+ingress:
+  name: apphub-manager
+  host: portal-apphub-manager
+novncIngress:
+  name: novnc
+  host: api-novnc
+
+global:
+  database:
+    secretName: apphub
+  ensaasApps:
+    apiDccs: 
+      externalUrl: http://api-dccs-ensaas.hz.wise-paas.com.cn/v1
+      internalUrl: http://api.dccs.ensaas.en.internal/v1   
+    apiSso:
+      externalUrl: http://api-sso-ensaas.hz.wise-paas.com.cn/v4.0   
+      internalUrl: http://api.sso.ensaas.en.internal/v4.0
+    apiLicense:
+      externalUrl: https://api-license-ensaas.hz.wise-paas.com.cn/v1
+      internalUrl: http://api.license.ensaas.en.internal/v1
+    ensaas:
+      datacenterCode: hz
+      externalUrl: hz.wise-paas.com.cn
+      internalUrl: en.internal
+    licenseParam:
+      pn: "980GWPAHA02"
+      addpn: "980GWPAHA03"
+    
+
+  url:
+    host: .apphub.eks001.en.internal
+#docker镜像
+  manager:
+    repository: harbor.arfa.wise-paas.com/apphub/apphub-manager-ensaas
+    tag: v1.0.2
+    pullPolicy: IfNotPresent
+  repo:
+    repository: harbor.arfa.wise-paas.com/apphub/apphub-repo-ensaas
+    tag: v1.0.2
+    pullPolicy: IfNotPresent
+  novnc:
+    repository: harbor.arfa.wise-paas.com/apphub/novnc-ensaas
+    tag: v1.0.1
+    pullPolicy: IfNotPresent
+  podinit:
+    repository: harbor.arfa.wise-paas.com/apphub/pod-dependency-init-container
+    tag: v1.0.0
+    pullPolicy: IfNotPresent
+# deploy in ensaas cloud
+  env:
+    type: cloud
+
+
+

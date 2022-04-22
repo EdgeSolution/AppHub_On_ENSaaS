@@ -1,0 +1,17 @@
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ .Values.novncIngress.name}}
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "300"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "300"
+spec:
+  rules:
+  - host: {{ .Values.novncIngress.host }}{{.Values.global.url.host}}
+    http:
+      paths:
+      - backend:
+          serviceName: {{ .Values.novncService.name }}
+          servicePort: {{ .Values.novncService.port }}

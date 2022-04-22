@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.novncService.name }}
+  labels: 
+    app: {{ .Values.novncService.label }}
+spec:
+  ports:
+    - port: {{ .Values.novncService.port }}
+      targetPort: {{ .Values.novncService.targetPort }}
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ .Values.label}}
+  
