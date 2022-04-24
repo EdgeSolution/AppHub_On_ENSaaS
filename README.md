@@ -3,7 +3,9 @@
 ## 首次部署
 ### 1. 环境准备
 #### 1.1 安装kubectl
+
 **参考步骤**
+
 step1：终端运行下面命令获取kubectl的最新发行版
 ```
 curl -LO https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl
@@ -40,6 +42,7 @@ sudo apt-get install helm
 
 #### 2.1 订阅RabbitMQ
 订阅RabbitMQ服务并生成secret 
+
 **step 1: 进入RabbitMQ服务密钥管理页面**
 
 选择的RabbitMQ服务，点击密钥管理，进入其密钥管理页面，如下图
@@ -65,6 +68,7 @@ sudo apt-get install helm
 ![图2-4创建成功](https://user-images.githubusercontent.com/65381865/164954650-bea25ec3-f040-4d68-ada1-e786df4363a8.png)
 
 #### 2.2 订阅 Postgresql DB服务
+
 **step1：进Postgresql DB其密钥管理页面**
 
 选择的Postgresql DB服务，点击密钥管理，进入其密钥管理页面，如下图
@@ -89,20 +93,35 @@ sudo apt-get install helm
 
 ### 3. 开始手动部署
 #### 3.1 配置kubectl
+
 **step1: 从Management Portal下载kubectl的confi档**
+如下图所示位置，下载
+![image](https://user-images.githubusercontent.com/65381865/164957973-6b6748c0-11b9-4b95-ab93-310fe8fa70de.png)
 
 
 **step2：将下载的config档拷贝到本地**
+将config文档拷贝到helm部署机的/root/.kube目录下，并重命名为config
 
 
 #### 3.2 下载AppHub的helm包
-**方法1：**
-本地clone（需要git）
+
+**方法1：git clone（需要git环境）**
+
+如果需要安装最新版本，则执行如下：
+
 ```
-Git clone https://github.com/EdgeSolution/AppHub_On_EnSaaS.git
+git clone https://github.com/EdgeSolution/AppHub_On_EnSaaS.git
 ```
-**方法2：**
-网页端直接下载zip包
+
+如果需要安装指定版本，例如V1.0.1，则执行如下：
+```
+git clone --branch V1.0.1 https://github.com/EdgeSolution/AppHub_On_EnSaaS.git
+```
+
+**方法2：网页端直接下载zip包**
+通过网页打开https://github.com/EdgeSolution/AppHub_On_EnSaaS.git后，选择相应的tag版本，直接下载即可。
+
+
 
 ### 3.3	修改values.yml文件中的相关配置
 解压AppHub的helm包，进入apphub-manager目录，修改values.yml中相关的配置，如下图：
