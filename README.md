@@ -167,7 +167,7 @@ helm install apphub-manager –n $namespace .
 
 如果原有的helm安装包文件都存在，则直接修改AppHub_On_EnSaaS/AppHub-HelmChart下的values.yml中image版本tag版本号，然后升级即可
 
-**step1：修改value.yml**
+#### 1：修改value.yml中image版本
 
 ```
 cd AppHub_On_EnSaaS/AppHub-HelmChart
@@ -178,7 +178,7 @@ vi values.yml
 
 ![image](https://user-images.githubusercontent.com/65381865/164960716-0b0b5b9b-b3ad-4d5f-9be5-3c9538d8cd65.png)
 
-**step2: helm upgrade**
+#### 2: helm upgrade
 
 ```
 helm upgrade apphubmanager -n apphub .
