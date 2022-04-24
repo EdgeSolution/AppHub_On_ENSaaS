@@ -93,16 +93,23 @@ Git clone https://github.com/EdgeSolution/AppHub_On_EnSaaS.git
 
 ![图4-value截图](https://user-images.githubusercontent.com/65381865/164954684-6e184971-1930-490e-a451-d6e1fba67f11.png)
 
-其中，
+其中,
+
 1：secret name
+
 2-4,6：与MP域名后缀一致
+
 5，为站点名称
+
 7：.命名空间名字和.集群名字组合
 
 ## 3.2 执行helm install
 在命令行终端执行：
-`helm install apphub-manager –n $namespace .`
+```
+helm install apphub-manager –n $namespace .
+```
 其中，namespace为实际要部署的目标命令空间名称。
+
 例如，本地demo部署命令如下： `helm install apphub-manager -n apphub .`
 
 
