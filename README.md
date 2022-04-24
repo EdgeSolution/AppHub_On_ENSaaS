@@ -178,7 +178,7 @@ vi values.yml
 
 ![image](https://user-images.githubusercontent.com/65381865/164960716-0b0b5b9b-b3ad-4d5f-9be5-3c9538d8cd65.png)
 
-**step2: helm upgrade*
+**step2: helm upgrade**
 
 ```
 helm upgrade apphubmanager -n apphub .
