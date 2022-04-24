@@ -1,5 +1,5 @@
 # AppHub_On_EnSaaS
-# helm方式手动部署
+# 1.helm方式手动部署
 ## 首次部署
 ### 1. 环境准备
 #### 1.1 安装kubectl
@@ -94,7 +94,7 @@ sudo apt-get install helm
 
 ![图3-2创建成功](https://user-images.githubusercontent.com/65381865/164954678-6115a02a-fc5b-41cb-8ef8-4bdbad587e19.png)
 
-### 3. 开始手动部署
+### 3. 手动部署
 #### 3.1 配置kubectl
 
 **step1: 从Management Portal下载kubectl的confi档**
@@ -129,7 +129,7 @@ git clone --branch 1.0.2 https://github.com/EdgeSolution/AppHub_On_EnSaaS.git
 
 
 
-### 3.3	修改values.yml文件中的相关配置
+#### 3.3	修改values.yml文件中的相关配置
 如果是git clone方式获取helm包，则进入路径修改values.yml
 如果是下载的zip/tar.gz包，则解压后，进入路径修改values.yml
 
@@ -152,14 +152,63 @@ vi values.yml
 
 7：.命名空间名字和.集群名字组合
 
-### 3.4 执行helm install
-在命令行终端进入AppHub-Helm-Vxx目录，执行：
+#### 3.4 执行helm install
+在命令行终端AppHub-HelmChart目录，执行：
 ```
 helm install apphub-manager –n $namespace .
 ```
 其中，namespace为实际要部署的目标命令空间名称。
 
 例如，本地demo部署命令如下： `helm install apphub-manager -n apphub .`
+
+## imager版本升级部署
+
+### 情况1：原helm包仍然存在可用
+
+如果原有的helm安装包文件都存在，则直接修改AppHub_On_EnSaaS/AppHub-HelmChart下的values.yml中image版本tag版本号，然后升级即可
+
+**step1：修改value.yml**
+
+```
+cd AppHub_On_EnSaaS/AppHub-HelmChart
+vi values.yml
+```
+参考Github上最新的value.yml中相应的image tag version修改。建议不要直接覆盖value.yml，否则还需要按照首次安装方式那样修改value.yml中global:部分的相关项。
+仅修改docker images版本，如下图所示：
+
+![image](https://user-images.githubusercontent.com/65381865/164960716-0b0b5b9b-b3ad-4d5f-9be5-3c9538d8cd65.png)
+
+**step2: helm upgrade*
+
+```
+helm upgrade apphubmanager -n apphub .
+```
+### 情况2：使用新的部署环境升级部署
+
+当原来helm部署环境不存在时，需要参考部分首次部署的步骤即：
+#### 1.环境准备
+参考首次安装的环境准备步骤
+
+#### 2.helm upagrade
+**step1: 配置kubectl config档，下载AppHub的helm包，修改value.yml**
+
+参考首次安装的3.1-3.3
+
+**step2：执行helm upgarde**
+
+在命令行终端AppHub-HelmChart目录，执行：
+```
+helm upgrade apphub-manager –n $namespace .
+```
+其中，namespace为实际要部署的目标命令空间名称。
+
+例如，本地demo部署命令如下： `helm upgrade apphub-manager -n apphub .`
+
+
+
+
+
+
 
 
 
