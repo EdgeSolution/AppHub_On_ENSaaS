@@ -118,9 +118,9 @@ sudo apt-get install helm
 git clone https://github.com/EdgeSolution/AppHub_On_EnSaaS.git
 ```
 
-如果需要安装指定版本，例如V1.0.1，则执行如下：
+如果需要安装指定版本，例如1.0.2，则执行如下：
 ```
-git clone --branch V1.0.1 https://github.com/EdgeSolution/AppHub_On_EnSaaS.git
+git clone --branch 1.0.2 https://github.com/EdgeSolution/AppHub_On_EnSaaS.git
 ```
 
 **方法2：网页端直接下载zip包**
@@ -130,7 +130,15 @@ git clone --branch V1.0.1 https://github.com/EdgeSolution/AppHub_On_EnSaaS.git
 
 
 ### 3.3	修改values.yml文件中的相关配置
-解压AppHub的helm包，进入apphub-manager目录，修改values.yml中相关的配置，如下图：
+如果是git clone方式获取helm包，则进入路径修改values.yml
+如果是下载的zip/tar.gz包，则解压后，进入路径修改values.yml
+
+```
+cd AppHub_On_EnSaaS/AppHub-HelmChart
+vi values.yml
+```
+
+如下图：
 
 ![图4-value截图](https://user-images.githubusercontent.com/65381865/164954684-6e184971-1930-490e-a451-d6e1fba67f11.png)
 
