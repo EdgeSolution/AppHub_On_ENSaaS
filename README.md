@@ -90,6 +90,7 @@ Git clone https://github.com/EdgeSolution/AppHub_On_EnSaaS.git
 ![图3-2创建成功](https://user-images.githubusercontent.com/65381865/164954678-6115a02a-fc5b-41cb-8ef8-4bdbad587e19.png)
 
 # 3. 手动部署
+##
 ## 3.1	修改values.yml文件中的相关配置
 解压AppHub的helm包，进入apphub-manager目录，修改values.yml中相关的配置，如下图：
 
@@ -106,13 +107,14 @@ Git clone https://github.com/EdgeSolution/AppHub_On_EnSaaS.git
 7：.命名空间名字和.集群名字组合
 
 ## 3.2 执行helm install
-在命令行终端执行：
+在命令行终端进入AppHub-Helm-Vxx目录，执行：
 ```
 helm install apphub-manager –n $namespace .
 ```
 其中，namespace为实际要部署的目标命令空间名称。
 
 例如，本地demo部署命令如下： `helm install apphub-manager -n apphub .`
+
 
 
 
