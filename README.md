@@ -205,6 +205,8 @@ helm upgrade apphub-manager –n $namespace .
 例如，本地demo部署命令如下： `helm upgrade apphub-manager -n apphub .`
 
 
+# catalog订阅部署
+
 
 
 
