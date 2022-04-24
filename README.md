@@ -98,11 +98,13 @@ sudo apt-get install helm
 #### 3.1 配置kubectl
 
 **step1: 从Management Portal下载kubectl的confi档**
+
 如下图所示位置，下载
 ![image](https://user-images.githubusercontent.com/65381865/164957973-6b6748c0-11b9-4b95-ab93-310fe8fa70de.png)
 
 
 **step2：将下载的config档拷贝到本地**
+
 将config文档拷贝到helm部署机的/root/.kube目录下，并重命名为config
 
 
