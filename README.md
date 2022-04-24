@@ -163,7 +163,7 @@ helm install apphub-manager –n $namespace .
 
 ## imager版本升级部署
 
-### 情况1：原helm包仍然存在可用
+### 场景1：原部署环境仍然可用
 
 如果原有的helm安装包文件都存在，则直接修改AppHub_On_EnSaaS/AppHub-HelmChart下的values.yml中image版本tag版本号，然后升级即可
 
@@ -183,7 +183,7 @@ vi values.yml
 ```
 helm upgrade apphubmanager -n apphub .
 ```
-### 情况2：使用新的部署环境升级部署
+### 场景2：使用新的部署环境升级部署
 
 当原来helm部署环境不存在时，需要参考部分首次部署的步骤即：
 #### 1.环境准备
