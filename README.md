@@ -55,31 +55,42 @@ Git clone https://github.com/EdgeSolution/AppHub_On_EnSaaS.git
 ![图2-1-加号](https://user-images.githubusercontent.com/65381865/164954629-b844e94e-fffc-4b38-b2a4-fe8675a68915.png)
 
 然后在如下图所示的弹出框中输入相应内容，即输入secret的名称，选择需要部署apphub的集群、工作空间和命名空间，点击确定，成功创建secret
+
 ![图2-2-创建密钥](https://user-images.githubusercontent.com/65381865/164954633-16ac48ec-c133-4ce1-89ac-082526d44142.png)
+
 下图为example，可以共参考
+
 ![图2-3创建密钥demo](https://user-images.githubusercontent.com/65381865/164954639-336f3e57-b9f8-422f-9885-7ecf59ac4a9d.png)
+
 创建成功后，在密钥管理列表中可以看到，如下图
+
 ![图2-4创建成功](https://user-images.githubusercontent.com/65381865/164954650-bea25ec3-f040-4d68-ada1-e786df4363a8.png)
 
 ## 2.2 订阅 Postgresql DB服务
 #### step1：进Postgresql DB其密钥管理页面
 选择的Postgresql DB服务，点击密钥管理，进入其密钥管理页面，如下图
+
 ![图3-db服务进入密钥管理页面](https://user-images.githubusercontent.com/65381865/164954660-64c24689-1281-4c50-b01a-32550307caa9.png)
 
 #### step2：创建Postgresql DB服务的密钥
 首先同RabbitMQ一样点击右上角“+”号开始创建
+
 **注意事项**
-**1. 切记secret名称必须与2.1创建的RabbitMQ服务的secret名称保持一致
-2. 添加参数(group: g_apphub)**
+**1. 切记secret名称必须与2.1创建的RabbitMQ服务的secret名称保持一致**
+**2. 添加参数(group: g_apphub)**
+
 举例如下图所示
+
 ![图3-1-举例demo](https://user-images.githubusercontent.com/65381865/164954675-7db8d5d4-021f-4f1c-b900-adcbb3d88917.png)
 
 创建成功后，会在密钥管理列表中可以看到，如下图
+
 ![图3-2创建成功](https://user-images.githubusercontent.com/65381865/164954678-6115a02a-fc5b-41cb-8ef8-4bdbad587e19.png)
 
 # 3. 手动部署
 ## 3.1	修改values.yml文件中的相关配置
 解压AppHub的helm包，进入apphub-manager目录，修改values.yml中相关的配置，如下图：
+
 ![图4-value截图](https://user-images.githubusercontent.com/65381865/164954684-6e184971-1930-490e-a451-d6e1fba67f11.png)
 
 其中，
