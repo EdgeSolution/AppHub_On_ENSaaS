@@ -3,12 +3,16 @@
 ## 1.1 安装kubectl
 #### 参考步骤
 step1：终端运行下面命令获取kubectl的最新发行版
-`curl -LO https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl`
+```
+curl -LO https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl
+```
 step2：安装kubectl
-`sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl`
-`chmod +x kubectl`
-`mkdir -p ~/.local/bin/kubectl`
-`mv ./kubectl ~/.local/bin/kubectl`
+```
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+chmod +x kubectl
+mkdir -p ~/.local/bin/kubectl
+mv ./kubectl ~/.local/bin/kubectl
+```
 setp3: 将kubectl加入环境变量
 例如在/etc/profile末尾添加：`export PATH=.:~/.local/bin/kubectl:$PATH`
 然后执行`Source /etc/profile`使其生效
@@ -28,21 +32,26 @@ sudo apt-get install helm
 
 ## 1.3 下载AppHub的helm包
 方法1：本地clone（需要git）
-`Git clone https://github.com/EdgeSolution/AppHub_On_EnSaaS.git`
+```
+Git clone https://github.com/EdgeSolution/AppHub_On_EnSaaS.git
+```
 方法2：网页端直接下载zip包
 
 # 2. 订阅服务
 进入EnSaaS4.0 Management Portal页面， 点击工作台中的服务中心，如下图
+
 ![图1-进入服务中心](https://user-images.githubusercontent.com/65381865/164954623-ff168449-4096-4d47-984a-fecf7c27798b.png)
 
 ## 2.1 订阅RabbitMQ
 订阅RabbitMQ服务并生成secret 
 #### step 1: 进入RabbitMQ服务密钥管理页面
 选择的RabbitMQ服务，点击密钥管理，进入其密钥管理页面，如下图
+
 ![图2-rabbitmq密钥管理页面](https://user-images.githubusercontent.com/65381865/164954622-da608efb-e6a1-4d69-b2ed-f0333bfe0edf.png)
 
 #### step 2: 创建RabbitMQ服务的密钥
 首先点击右上角“+”号，如图所示，开始创建
+
 ![图2-1-加号](https://user-images.githubusercontent.com/65381865/164954629-b844e94e-fffc-4b38-b2a4-fe8675a68915.png)
 
 然后在如下图所示的弹出框中输入相应内容，即输入secret的名称，选择需要部署apphub的集群、工作空间和命名空间，点击确定，成功创建secret
