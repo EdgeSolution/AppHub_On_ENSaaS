@@ -1,7 +1,8 @@
 # AppHub_On_EnSaaS
-# 首次手动安装
-## 1. 环境准备
-### 1.1 安装kubectl
+# heml方式手动部署
+## 首次部署
+### 1. 环境准备
+#### 1.1 安装kubectl
 **参考步骤**
 step1：终端运行下面命令获取kubectl的最新发行版
 ```
@@ -20,7 +21,7 @@ setp3: 将kubectl加入环境变量
 
 setp4：最后通过`kubectl version –client`验证
 
-### 1.2 安装helm
+#### 1.2 安装helm
 以Ubuntu为例，官网网站，ubuntu下安装的方式为：
 
 ```
@@ -32,19 +33,21 @@ sudo apt-get install helm
 ```
 
 
-## 2. 订阅服务
+### 2. 订阅服务
 进入EnSaaS4.0 Management Portal页面， 点击工作台中的服务中心，如下图
 
 ![图1-进入服务中心](https://user-images.githubusercontent.com/65381865/164954623-ff168449-4096-4d47-984a-fecf7c27798b.png)
 
-### 2.1 订阅RabbitMQ
+#### 2.1 订阅RabbitMQ
 订阅RabbitMQ服务并生成secret 
-##### step 1: 进入RabbitMQ服务密钥管理页面
+**step 1: 进入RabbitMQ服务密钥管理页面**
+
 选择的RabbitMQ服务，点击密钥管理，进入其密钥管理页面，如下图
 
 ![图2-rabbitmq密钥管理页面](https://user-images.githubusercontent.com/65381865/164954622-da608efb-e6a1-4d69-b2ed-f0333bfe0edf.png)
 
-##### step 2: 创建RabbitMQ服务的密钥
+**step 2: 创建RabbitMQ服务的密钥**
+
 首先点击右上角“+”号，如图所示，开始创建
 
 ![图2-1-加号](https://user-images.githubusercontent.com/65381865/164954629-b844e94e-fffc-4b38-b2a4-fe8675a68915.png)
@@ -61,13 +64,15 @@ sudo apt-get install helm
 
 ![图2-4创建成功](https://user-images.githubusercontent.com/65381865/164954650-bea25ec3-f040-4d68-ada1-e786df4363a8.png)
 
-### 2.2 订阅 Postgresql DB服务
-##### step1：进Postgresql DB其密钥管理页面
+#### 2.2 订阅 Postgresql DB服务
+**step1：进Postgresql DB其密钥管理页面**
+
 选择的Postgresql DB服务，点击密钥管理，进入其密钥管理页面，如下图
 
 ![图3-db服务进入密钥管理页面](https://user-images.githubusercontent.com/65381865/164954660-64c24689-1281-4c50-b01a-32550307caa9.png)
 
-#### step2：创建Postgresql DB服务的密钥
+**step2：创建Postgresql DB服务的密钥**
+
 首先同RabbitMQ一样点击右上角“+”号开始创建
 
 **注意事项**
@@ -82,8 +87,15 @@ sudo apt-get install helm
 
 ![图3-2创建成功](https://user-images.githubusercontent.com/65381865/164954678-6115a02a-fc5b-41cb-8ef8-4bdbad587e19.png)
 
-## 3. 手动部署
-### 3.1 下载AppHub的helm包
+### 3. 开始手动部署
+#### 3.1 配置kubectl
+**step1: 从Management Portal下载kubectl的confi档**
+
+
+**step2：将下载的config档拷贝到本地**
+
+
+#### 3.2 下载AppHub的helm包
 **方法1：**
 本地clone（需要git）
 ```
@@ -92,7 +104,7 @@ Git clone https://github.com/EdgeSolution/AppHub_On_EnSaaS.git
 **方法2：**
 网页端直接下载zip包
 
-### 3.2	修改values.yml文件中的相关配置
+### 3.3	修改values.yml文件中的相关配置
 解压AppHub的helm包，进入apphub-manager目录，修改values.yml中相关的配置，如下图：
 
 ![图4-value截图](https://user-images.githubusercontent.com/65381865/164954684-6e184971-1930-490e-a451-d6e1fba67f11.png)
@@ -107,7 +119,7 @@ Git clone https://github.com/EdgeSolution/AppHub_On_EnSaaS.git
 
 7：.命名空间名字和.集群名字组合
 
-### 3.3 执行helm install
+### 3.4 执行helm install
 在命令行终端进入AppHub-Helm-Vxx目录，执行：
 ```
 helm install apphub-manager –n $namespace .
