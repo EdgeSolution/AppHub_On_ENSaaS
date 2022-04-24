@@ -1,5 +1,5 @@
 # AppHub_On_EnSaaS
-# heml方式手动部署
+# helm方式手动部署
 ## 首次部署
 ### 1. 环境准备
 #### 1.1 安装kubectl
@@ -80,8 +80,11 @@ sudo apt-get install helm
 首先同RabbitMQ一样点击右上角“+”号开始创建
 
 **注意事项**
+
 **1. 切记secret名称必须与2.1创建的RabbitMQ服务的secret名称保持一致**
+
 **2. 添加参数(group: g_apphub)**
+
 
 举例如下图所示
 
@@ -119,7 +122,8 @@ git clone --branch V1.0.1 https://github.com/EdgeSolution/AppHub_On_EnSaaS.git
 ```
 
 **方法2：网页端直接下载zip包**
-通过网页打开https://github.com/EdgeSolution/AppHub_On_EnSaaS.git后，选择相应的tag版本，直接下载即可。
+
+通过网页打开https://github.com/EdgeSolution/AppHub_On_EnSaaS.git ，选择相应的tag版本，直接下载即可。
 
 
 
