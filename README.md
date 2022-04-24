@@ -206,6 +206,9 @@ helm upgrade apphub-manager –n $namespace .
 
 
 # catalog订阅部署
+正在整理中，请等待。
+如果急需请联系我们~
+
 
 
 
