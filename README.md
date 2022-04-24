@@ -31,11 +31,13 @@ sudo apt-get install helm
 ```
 
 ## 1.3 下载AppHub的helm包
-方法1：本地clone（需要git）
+**方法1：**
+本地clone（需要git）
 ```
 Git clone https://github.com/EdgeSolution/AppHub_On_EnSaaS.git
 ```
-方法2：网页端直接下载zip包
+**方法2：**
+网页端直接下载zip包
 
 # 2. 订阅服务
 进入EnSaaS4.0 Management Portal页面， 点击工作台中的服务中心，如下图
