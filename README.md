@@ -1,8 +1,8 @@
 # AppHub_On_EnSaaS
 # helm方式手动部署
-## &diams;首次部署
+## 首次部署
 ### 1. 环境准备
-#### 1.1 安装kubectl
+- ** 1.1 安装kubectl **
 
 **参考步骤**
 
