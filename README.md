@@ -1,8 +1,8 @@
 # AppHub_On_EnSaaS
 # helm方式手动部署
-## 首次部署
-### 1. 环境准备
-#### - 1.1 安装kubectl
+## 1. 首次部署
+### 1.1 环境准备
+ #### (1) 安装kubectl
 
 **参考步骤**
 
@@ -23,7 +23,7 @@ setp3: 将kubectl加入环境变量
 
 setp4：最后通过`kubectl version –client`验证
 
-#### 1.2 安装helm
+#### (2) 安装helm
 以Ubuntu为例，官网网站，ubuntu下安装的方式为：
 
 ```
@@ -35,12 +35,12 @@ sudo apt-get install helm
 ```
 
 
-### 2. 订阅服务
+### 1.2 订阅服务
 进入EnSaaS4.0 Management Portal页面， 点击工作台中的服务中心，如下图
 
 ![图1-进入服务中心](https://user-images.githubusercontent.com/65381865/164954623-ff168449-4096-4d47-984a-fecf7c27798b.png)
 
-#### 2.1 订阅RabbitMQ
+#### (1) 订阅RabbitMQ
 订阅RabbitMQ服务并生成secret 
 
 **step 1: 进入RabbitMQ服务密钥管理页面**
@@ -67,7 +67,7 @@ sudo apt-get install helm
 
 ![图2-4创建成功](https://user-images.githubusercontent.com/65381865/164954650-bea25ec3-f040-4d68-ada1-e786df4363a8.png)
 
-#### 2.2 订阅 Postgresql DB服务
+#### (2) 订阅 Postgresql DB服务
 
 **step1：进Postgresql DB其密钥管理页面**
 
@@ -94,8 +94,8 @@ sudo apt-get install helm
 
 ![图3-2创建成功](https://user-images.githubusercontent.com/65381865/164954678-6115a02a-fc5b-41cb-8ef8-4bdbad587e19.png)
 
-### 3. 手动部署
-#### 3.1 配置kubectl
+### 1.3. 部署
+#### （1） 配置kubectl
 
 **step1: 从Management Portal下载kubectl的confi档**
 
@@ -108,7 +108,7 @@ sudo apt-get install helm
 将config文档拷贝到helm部署机的/root/.kube目录下，并重命名为config
 
 
-#### 3.2 下载AppHub的helm包
+#### （2） 下载AppHub的helm包
 
 **方法1：git clone（需要git环境）**
 
@@ -129,7 +129,7 @@ git clone --branch 1.0.2 https://github.com/EdgeSolution/AppHub_On_EnSaaS.git
 
 
 
-#### 3.3	修改values.yml文件中的相关配置
+#### （3）修改values.yml文件中的相关配置
 如果是git clone方式获取helm包，则进入路径修改values.yml
 如果是下载的zip/tar.gz包，则解压后，进入路径修改values.yml
 
@@ -152,7 +152,7 @@ vi values.yml
 
 7：.命名空间名字和.集群名字组合
 
-#### 3.4 执行helm install
+#### （4） 执行helm install
 在命令行终端AppHub-HelmChart目录，执行：
 ```
 helm install apphub-manager –n $namespace .
@@ -161,13 +161,13 @@ helm install apphub-manager –n $namespace .
 
 例如，本地demo部署命令如下： `helm install apphub-manager -n apphub .`
 
-## &diams;imager版本升级部署
+## 2. imager版本升级部署
 
-### 场景1：原部署环境仍然可用
+### 2.1：原部署环境仍然可用
 
 如果原有的helm安装包文件都存在，则直接修改AppHub_On_EnSaaS/AppHub-HelmChart下的values.yml中image版本tag版本号，然后升级即可
 
-#### 1：修改value.yml中image版本
+**step1：修改value.yml中image版本**
 
 ```
 cd AppHub_On_EnSaaS/AppHub-HelmChart
@@ -178,18 +178,18 @@ vi values.yml
 
 ![image](https://user-images.githubusercontent.com/65381865/164960716-0b0b5b9b-b3ad-4d5f-9be5-3c9538d8cd65.png)
 
-#### 2: helm upgrade
+**step2: helm upgrade**
 
 ```
 helm upgrade apphubmanager -n apphub .
 ```
-### 场景2：使用新的部署环境升级部署
+### 2.2：使用新的部署环境升级部署
 
 当原来helm部署环境不存在时，需要参考部分首次部署的步骤即：
-#### 1.环境准备
+#### (1) 环境准备
 参考首次安装的环境准备步骤
 
-#### 2.helm upagrade
+#### (2) helm upagrade
 **step1: 配置kubectl config档，下载AppHub的helm包，修改value.yml**
 
 参考首次安装的3.1-3.3
@@ -217,7 +217,7 @@ helm upgrade apphub-manager –n $namespace .
 
 ![选择相应项订阅](https://user-images.githubusercontent.com/65381865/168772794-a9ad84d0-e0ee-4efe-b00b-d8b1191f27e2.png)
 
-- ## 针对没有EnSaaS环境的用户
+## 1. 针对没有EnSaaS环境的用户
 
 如果您还没有企业账户，则先在Marketplace中完成注册和充值的步骤；如果您已经在Marketplace注册企业账户并完成充值后，则直接Marketplace页面选择AppHub产品直接跳转到catalog门户进行接下来的操作。
 
@@ -243,7 +243,7 @@ EnSaaS云服务上AppHub免费试用版支持设备在线数量最大为50，如
 
 
 
-## - 针对已经有EnSaaS环境的用户
+## 2. 针对已经有EnSaaS环境的用户
 
 如果您已经拥有一个EnSaaS环境，只需要部署AppHub这个SRP应用，则按照如下方式操作。
 
