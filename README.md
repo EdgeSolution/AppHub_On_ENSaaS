@@ -204,7 +204,7 @@ helm upgrade apphub-manager –n $namespace .
 
 例如，本地demo部署命令如下： `helm upgrade apphub-manager -n apphub .`
 
-# catalog订阅部署
+# catalog在线订阅部署
 
 **step1：首先登录catalog主页，选择AppHub**
 
@@ -273,9 +273,11 @@ K8S服务选择相应正确项，基础服务有PostgreSQL和RabbitMQ。选择�
 ![已经有ensaas环境的订阅-4总结](https://user-images.githubusercontent.com/65381865/168773204-a753bf63-b9ae-43b9-b1be-f01274e8d270.png)
 
 确认后，在订单页面可以看到我们的订单详情，等待订单完成。
+
 **step4：获取AppHub portal**
 
 订单完成后，登录managerment portal，在应用页面就可以看到刚刚部署的AppHub信息，获取访问url，如下图所示。
 
 ![image](https://user-images.githubusercontent.com/65381865/168773761-67701aec-6233-436b-8dc6-d1e7bd17b3cb.png)
 
+# catalog在线订阅license
