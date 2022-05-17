@@ -204,16 +204,16 @@ helm upgrade apphub-manager –n $namespace .
 
 例如，本地demo部署命令如下： `helm upgrade apphub-manager -n apphub .`
 
-
-# catalog订阅部署
 # catalog订阅部署
 
 **step1：首先登录catalog主页，选择AppHub**
-[catalog主页搜索AppHub.png]
+[![catalog主页搜索AppHub](https://user-images.githubusercontent.com/65381865/168772693-6ec76baf-0dc4-439e-9c20-fb757d9d3f10.png)
+
 
 **step2：订阅AppHub**
 根据自己的需求进行相应订阅，这里我们以订阅免费试用版为例进行说明，点击“立即订阅”
-[订阅产品.png]
+![选择相应项订阅](https://user-images.githubusercontent.com/65381865/168772794-a9ad84d0-e0ee-4efe-b00b-d8b1191f27e2.png)
+
 ## 针对没有EnSaaS环境的用户
 
 如果您还没有企业账户，则先在Marketplace中完成注册和充值的步骤；如果您已经在Marketplace注册企业账户并完成充值后，则直接Marketplace页面选择AppHub产品直接跳转到catalog门户进行接下来的操作。
@@ -221,19 +221,20 @@ helm upgrade apphub-manager –n $namespace .
 **step1：选择正确的订阅号和应用部署**
 这里选择Standard Total因为EnSaaS环境资源需要付费，所以这里会产生费用。（注意选择正确的订阅号）
 
-[首次订阅—step1.png]
+![首次订阅—step1](https://user-images.githubusercontent.com/65381865/168772840-2782f224-dc3f-4574-ade9-0c81307cfe25.png)
+
 
 EnSaaS云服务上AppHub免费试用版支持设备在线数量最大为50，如果需要额外设备数量可以在部署配置这里勾选额外设备数进行结算，如果不需要则直接点击“下一步”。
 
-[首次订阅—step1-部署配置选项.png]
+![首次订阅—step1-部署配置选项](https://user-images.githubusercontent.com/65381865/168772891-ad2c127f-25f2-4171-b1d4-938e5b0a277f.png)
 
 
 **step2：在总结页面确认**
 
-【首次订阅—step2-总结.png】
+![首次订阅—step2-总结](https://user-images.githubusercontent.com/65381865/168772953-ca734246-4842-4ea8-9abf-1143dadac1b5.png)
 
-确认无误后会产生部署订单并如下图
-【首次订阅—step2-总结-确定后2.png】
+确认无误后会产生部署订单并如下图：
+![首次订阅—step2-总结-确定后3](https://user-images.githubusercontent.com/65381865/168773054-89892d97-0368-4315-9d52-113fe80217b2.png)
 部署完成后会邮件通知用户。
 
 
@@ -245,34 +246,26 @@ EnSaaS云服务上AppHub免费试用版支持设备在线数量最大为50，如
 **step1：选择正确的订阅号和应用部署**
 这里选择Standard Single，注意选择正确的订阅号。
 
-【已经有ensaas环境的订阅-1.png】
+![已经有ensaas环境的订阅-1](https://user-images.githubusercontent.com/65381865/168773115-b0fec1f0-d694-41aa-8d92-a4ca61061cae.png)
+
 
 EnSaaS云服务上AppHub免费试用版支持设备在线数量最大为50，如果需要额外设备数量可以在部署配置这里勾选额外设备数进行结算，如果不需要则直接点击“下一步”。
 
-【已经有ensaas环境的订阅-2-additional.png】
+![已经有ensaas环境的订阅-2-additional](https://user-images.githubusercontent.com/65381865/168773138-07cc6002-2b48-49b2-bcd7-a011ba0c2460.png)
+
 
 **step2：k8s服务和基础服务**
 K8S服务选择相应正确项，基础服务有PostgreSQL和RabbitMQ。选择完成后点击下一步，如下图。
+![已经有ensaas环境的订阅-3-k8s服务](https://user-images.githubusercontent.com/65381865/168773167-4e20a491-18ed-47bb-b507-c0c48220e9eb.png)
+![已经有ensaas环境的订阅-3-基础服务](https://user-images.githubusercontent.com/65381865/168773175-8b40617a-0b81-463d-8b9d-2e348ba7abf1.png)
 
-【已经有ensaas环境的订阅-3-k8s服务.png】
-【已经有ensaas环境的订阅-3-基础服务.png】
+
 **step3：总结，确认订单**
 在总结页面确认各项内容正确后点击确认，如下图：
-【已经有ensaas环境的订阅-4总结.png】
+![已经有ensaas环境的订阅-4总结](https://user-images.githubusercontent.com/65381865/168773204-a753bf63-b9ae-43b9-b1be-f01274e8d270.png)
+
 确认后，在订单页面可以看到我们的订单详情，等待订单完成。
 **step4：获取AppHub portal**
 订单完成后，登录managerment portal，在应用页面就可以看到刚刚部署的AppHub信息，获取访问url，如下图所示。
-
-
-
-
-
-
-
-
-
-
-
-
 
 
