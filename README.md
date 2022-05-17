@@ -217,7 +217,7 @@ helm upgrade apphub-manager –n $namespace .
 
 ![选择相应项订阅](https://user-images.githubusercontent.com/65381865/168772794-a9ad84d0-e0ee-4efe-b00b-d8b1191f27e2.png)
 
-## 针对没有EnSaaS环境的用户
+- ## 针对没有EnSaaS环境的用户
 
 如果您还没有企业账户，则先在Marketplace中完成注册和充值的步骤；如果您已经在Marketplace注册企业账户并完成充值后，则直接Marketplace页面选择AppHub产品直接跳转到catalog门户进行接下来的操作。
 
@@ -243,7 +243,7 @@ EnSaaS云服务上AppHub免费试用版支持设备在线数量最大为50，如
 
 
 
-## 针对已经有EnSaaS环境的用户
+## - 针对已经有EnSaaS环境的用户
 
 如果您已经拥有一个EnSaaS环境，只需要部署AppHub这个SRP应用，则按照如下方式操作。
 
