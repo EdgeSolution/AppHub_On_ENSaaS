@@ -1,6 +1,6 @@
 # AppHub_On_EnSaaS
 # helm方式手动部署
-## 首次部署
+## &diams;首次部署
 ### 1. 环境准备
 #### 1.1 安装kubectl
 
@@ -161,7 +161,7 @@ helm install apphub-manager –n $namespace .
 
 例如，本地demo部署命令如下： `helm install apphub-manager -n apphub .`
 
-## imager版本升级部署
+## &diams;imager版本升级部署
 
 ### 场景1：原部署环境仍然可用
 
