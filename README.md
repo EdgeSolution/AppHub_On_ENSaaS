@@ -2,7 +2,7 @@
 # helm方式手动部署
 ## 1. 首次部署
 ### 1.1 环境准备
- #### (1) 安装kubectl
+#### (1) 安装kubectl
 
 **参考步骤**
 
@@ -95,7 +95,7 @@ sudo apt-get install helm
 ![图3-2创建成功](https://user-images.githubusercontent.com/65381865/164954678-6115a02a-fc5b-41cb-8ef8-4bdbad587e19.png)
 
 ### 1.3. 部署
-#### （1）配置kubectl
+#### (1) 配置kubectl
 
 **step1: 从Management Portal下载kubectl的confi档**
 
@@ -108,7 +108,7 @@ sudo apt-get install helm
 将config文档拷贝到helm部署机的/root/.kube目录下，并重命名为config
 
 
-#### （2）下载AppHub的helm包
+#### (2) 下载AppHub的helm包
 
 **方法1：git clone（需要git环境）**
 
@@ -129,7 +129,7 @@ git clone --branch 1.0.2 https://github.com/EdgeSolution/AppHub_On_EnSaaS.git
 
 
 
-#### （3）修改values.yml相关项
+#### (3) 修改values.yml相关项
 如果是git clone方式获取helm包，则进入路径修改values.yml
 如果是下载的zip/tar.gz包，则解压后，进入路径修改values.yml
 
@@ -152,7 +152,7 @@ vi values.yml
 
 7：.命名空间名字和.集群名字组合
 
-#### （4）执行helm install
+#### (4) 执行helm install
 在命令行终端AppHub-HelmChart目录，执行：
 ```
 helm install apphub-manager –n $namespace .
