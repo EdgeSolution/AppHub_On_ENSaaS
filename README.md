@@ -283,10 +283,10 @@ K8S服务选择相应正确项，基础服务有PostgreSQL和RabbitMQ。选择�
 # catalog在线订阅license并激活
 
 当用户需要更多在线设备连接AppHub进行远程控制和远程部署等操作时，则需要购买license激活。购买license也是在catalog上进行。
-## EnSaaS平台上AppHub Manager版本激活
+## 1. EnSaaS平台上AppHub Manager版本激活
 以下截图是在测试平台上测试使用截图，实际购买操作环境基本一致。
 
-### 订阅license并激活
+### 1.1 订阅license并激活
 
 **step1：首先登录catalog主页，选择AppHub**
 
@@ -316,9 +316,9 @@ K8S服务选择相应正确项，基础服务有PostgreSQL和RabbitMQ。选择�
 
 
 
-## 本地AppHub Manager版本激活
+## 2. 本地AppHub Manager版本激活
 这里补充说明一下，加入在本地部署了一个AppHub Manager server，想通过catalog购买license激活的使用方法
-### 在线订阅license
+### 2.1 在线订阅license
 
 关于AppHub manager的license我们分按月购买和买断两种方式，每种方式都支持选择设备数量，根据时间和设备数量的不通有不通价位。
 
@@ -351,7 +351,7 @@ K8S服务选择相应正确项，基础服务有PostgreSQL和RabbitMQ。选择�
 
 ![image](https://user-images.githubusercontent.com/65381865/168940520-5875ced5-2fc2-4847-9e75-ce028369230a.png)
 
-### license激活
+### 2.2 license激活
 
 **step1：激活license
 
