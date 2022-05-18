@@ -129,7 +129,7 @@ git clone --branch 1.0.2 https://github.com/EdgeSolution/AppHub_On_EnSaaS.git
 
 
 
-#### （3）修改values.yml文件中的相关配置
+#### （3）修改values.yml相关项
 如果是git clone方式获取helm包，则进入路径修改values.yml
 如果是下载的zip/tar.gz包，则解压后，进入路径修改values.yml
 
