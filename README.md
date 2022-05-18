@@ -300,7 +300,7 @@ K8S服务选择相应正确项，基础服务有PostgreSQL和RabbitMQ。选择�
 
 （3）勾选“Additional”，数量选择“2” （以50台设备为单位，数量选择2，即2x50=100）
 
-![选择相应项订阅](https://user-images.githubusercontent.com/65381865/168772794-a9ad84d0-e0ee-4efe-b00b-d8b1191f27e2.png)
+![image](https://user-images.githubusercontent.com/65381865/168939944-bc296f19-2766-4d39-931a-bff9392eaa41.png)
 
 ![image](https://user-images.githubusercontent.com/65381865/168939502-1b4f9853-33a0-431a-9d97-d63159a34488.png)
 
