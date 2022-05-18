@@ -95,7 +95,7 @@ sudo apt-get install helm
 ![图3-2创建成功](https://user-images.githubusercontent.com/65381865/164954678-6115a02a-fc5b-41cb-8ef8-4bdbad587e19.png)
 
 ### 1.3. 部署
-#### （1） 配置kubectl
+#### （1）配置kubectl
 
 **step1: 从Management Portal下载kubectl的confi档**
 
@@ -108,7 +108,7 @@ sudo apt-get install helm
 将config文档拷贝到helm部署机的/root/.kube目录下，并重命名为config
 
 
-#### （2） 下载AppHub的helm包
+#### （2）下载AppHub的helm包
 
 **方法1：git clone（需要git环境）**
 
@@ -152,7 +152,7 @@ vi values.yml
 
 7：.命名空间名字和.集群名字组合
 
-#### （4） 执行helm install
+#### （4）执行helm install
 在命令行终端AppHub-HelmChart目录，执行：
 ```
 helm install apphub-manager –n $namespace .
