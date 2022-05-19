@@ -278,7 +278,8 @@ K8S服务选择相应正确项，基础服务有PostgreSQL和RabbitMQ。选择�
 
 订单完成后，登录managerment portal，在应用页面就可以看到刚刚部署的AppHub信息，获取访问url，如下图所示。
 
-![image](https://user-images.githubusercontent.com/65381865/168773761-67701aec-6233-436b-8dc6-d1e7bd17b3cb.png)
+![image](https://user-images.githubusercontent.com/65381865/169188182-adc52b5c-c664-4ec5-8635-ba4832d4d132.png)
+
 
 # catalog在线订阅license并激活
 
