@@ -1,5 +1,7 @@
 
-apiVersion: extensions/v1beta1
+{{- $ingressApiIsStable := eq (include "apphub.ingress.isStable" .) "true" -}}
+{{- $ingressSupportsPathType := eq (include "apphub.ingress.supportsPathType" .) "true" -}}
+apiVersion: {{ include "apphub.ingress.apiVersion" . }}
 kind: Ingress
 metadata:
   name: {{ .Values.ingress.name}}
@@ -7,12 +9,23 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-connect-timeout: "300"
     nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "300"
-    ingress.kubernetes.io/proxy-body-size: "10m"
+    nginx.ingress.kubernetes.io/proxy-body-size: "10m"
 spec:
   rules:
   - host: {{ .Values.ingress.host }}{{.Values.global.url.host}}
     http:
       paths:
-      - backend:
+      - path: /
+        {{- if $ingressSupportsPathType }}
+        pathType: {{ .Values.global.ingress.pathType }}
+        {{- end }}
+        backend:
+          {{- if $ingressApiIsStable }}
+          service:
+             name: {{ .Values.service.name }}
+             port: 
+               number: {{ .Values.service.port }}
+          {{- else }}
           serviceName: {{ .Values.service.name }}
           servicePort: {{ .Values.service.port }}
+          {{- end }}

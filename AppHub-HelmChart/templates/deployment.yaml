@@ -53,6 +53,8 @@ spec:
           value: {{ .Values.global.ensaasApps.licenseParam.pn }}
         - name: addpn
           value: {{ .Values.global.ensaasApps.licenseParam.addpn }}
+        - name: repoUrl
+          value: {{ .Values.global.ensaasApps.appHubRepo.url}}
         - name: ENSAAS_SERVICES
           valueFrom:
             secretKeyRef:

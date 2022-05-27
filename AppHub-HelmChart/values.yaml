@@ -44,6 +44,8 @@ global:
     apiLicense:
       externalUrl: https://api-license-ensaas.hz.wise-paas.com.cn/v1
       internalUrl: http://api.license.ensaas.en.internal/v1
+    appHubRepo:
+      url: http://portal-apphub-repo.apphub.eks001.en.internal
     ensaas:
       datacenterCode: hz
       externalUrl: hz.wise-paas.com.cn
@@ -75,6 +77,8 @@ global:
 # deploy in ensaas cloud
   env:
     type: cloud
+  ingress:
+    pathType: ImplementationSpecific
 
 
 

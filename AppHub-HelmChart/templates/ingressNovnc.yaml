@@ -1,5 +1,7 @@
 
-apiVersion: extensions/v1beta1
+{{- $ingressApiIsStable := eq (include "apphub.ingress.isStable" .) "true" -}}
+{{- $ingressSupportsPathType := eq (include "apphub.ingress.supportsPathType" .) "true" -}}
+apiVersion: {{ include "apphub.ingress.apiVersion" . }}
 kind: Ingress
 metadata:
   name: {{ .Values.novncIngress.name}}
@@ -12,6 +14,17 @@ spec:
   - host: {{ .Values.novncIngress.host }}{{.Values.global.url.host}}
     http:
       paths:
-      - backend:
+      - path: /
+        {{- if $ingressSupportsPathType }}
+        pathType: {{ .Values.global.ingress.pathType }}
+        {{- end }}
+        backend:
+          {{- if $ingressApiIsStable }}
+          service:
+             name: {{ .Values.novncService.name }}
+             port: 
+               number: {{ .Values.novncService.port }}
+          {{- else }}
           serviceName: {{ .Values.novncService.name }}
           servicePort: {{ .Values.novncService.port }}
+          {{- end }}
