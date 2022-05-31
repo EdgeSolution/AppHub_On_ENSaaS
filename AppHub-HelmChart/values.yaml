@@ -60,11 +60,11 @@ global:
 #docker镜像
   manager:
     repository: harbor.arfa.wise-paas.com/apphub/apphub-manager-ensaas
-    tag: v1.0.2
+    tag: v1.0.3
     pullPolicy: IfNotPresent
   repo:
     repository: harbor.arfa.wise-paas.com/apphub/apphub-repo-ensaas
-    tag: v1.0.2
+    tag: v1.0.3
     pullPolicy: IfNotPresent
   novnc:
     repository: harbor.arfa.wise-paas.com/apphub/novnc-ensaas
