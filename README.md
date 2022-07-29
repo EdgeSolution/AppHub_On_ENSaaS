@@ -5,7 +5,7 @@
 
 场景1：新新人在没有任何环境基础的情况下使用helm包部署，可以参考“1.helm方式首次部署”章节；
 
-场景2：之前已经helm部署过，现在想通过helm包完整的更新AppHub，可以参考“2.helm方式升级imager等配置”章节
+场景2：之前已经helm部署过，现在想通过helm包完整的更新AppHub，可以参考“2.helm方式升级image等配置”章节
 
 场景3：仅需要更新某个pod内的image，保留其他pod或者数据库的情况下，可以参考“3.kubectl命令直接更新image”章节
 
@@ -171,7 +171,7 @@ helm install apphub-manager –n $namespace .
 
 例如，本地demo部署命令如下： `helm install apphub-manager -n apphub .`
 
-## 2. helm方式升级imager等配置
+## 2. helm方式升级image等配置
 
 ### 2.1 原部署环境仍然可用
 
