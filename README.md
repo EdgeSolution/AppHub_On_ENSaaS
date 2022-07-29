@@ -213,7 +213,7 @@ helm upgrade apphub-manager –n $namespace .
 ### (2)kubectl命令更新image
 以namespace为develop为例说明
 
-**step1：先查看当前namespace下面的pod，确认环境OK
+**step1：先查看当前namespace下面的pod，确认环境OK**
 
 ```
 #kubectl get pods -n develop
@@ -223,7 +223,7 @@ apphub-repo-f767bd8f4-klgr2                           1/1     Running   0       
 ...
 ```
 
-**step2：edit deployment配置，修改apphub-manager的image
+**step2：edit deployment配置，修改apphub-manager的image**
 
 ```
 #kubectl edit deployment apphub-manager -n apphub
@@ -231,7 +231,7 @@ apphub-repo-f767bd8f4-klgr2                           1/1     Running   0       
 修改后:wq，保存退出
 
 
-**补充说明：
+**补充说明：**
 
 正常情况下，image会自动更新部署，我们可以通过`kubectl get pods -n develop`查看当前pod是否有创建更新。
 如果有异常，例如新的apphub-manager pod的状态为pending，需要先排查原因。
