@@ -246,10 +246,10 @@ apphub-repo-f767bd8f4-klgr2                           1/1     Running   0       
 
 修改后:wq，保存退出
 
+正常情况下，image会自动更新部署，我们可以通过`kubectl get pods -n develop`查看当前pod是否有创建更新。
 
 **补充说明：**
 
-正常情况下，image会自动更新部署，我们可以通过`kubectl get pods -n develop`查看当前pod是否有创建更新。
 如果有异常，例如新的apphub-manager pod的状态为pending，需要先排查原因。
 例如：
 
