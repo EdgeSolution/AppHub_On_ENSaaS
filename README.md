@@ -222,14 +222,31 @@ apphub-manager-7d65c89b8b-jscpq                       1/1     Running   0       
 apphub-repo-f767bd8f4-klgr2                           1/1     Running   0          170d
 ...
 ```
+
 **step2：edit deployment配置，修改apphub-manager的image
+
 ```
 #kubectl edit deployment apphub-manager -n apphub
 ```
 修改后:wq，保存退出
 
 正常情况下，image会自动更新部署，我们可以通过`kubectl get pods -n develop`查看当前pod是否有创建更新。
-如果有异常，例如新的apphub-manager pod的状态为pending
+如果有异常，例如新的apphub-manager pod的状态为pending，需要先排查原因。
+例如：
+
+```
+apphub-manager-59f6f775fc-sxbm9                       1/1     Running   1          210d
+apphub-manager-64d478b66-mt7fh                        0/1     Pending   0          76s
+apphub-repo-f767bd8f4-klgr2                           1/1     Running   0          170d
+
+```
+(1)首先kubectl describe查看失败原因
+
+```
+kubectl describe pod apphub-manager-64d478b66-mt7fh -n develop
+```
+(2)然后根据原因相应修改，例如是CPU资源不足导致时，则需要修改CPU资源
+
 
 # catalog在线订阅部署
 
