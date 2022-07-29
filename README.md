@@ -1,5 +1,5 @@
 # AppHub_On_EnSaaS
-本文档适用于部署AppHub到Wise-Paas公有云或私有云平台，包括helm手动部署方式和Catalog在线订阅部署两种方式。
+本文档适用于部署AppHub到Wise-Paas公有云或私有云平台，包括[helm方式手动部署](#helm)和[Catalog在线订阅部署](#catalog_1)两种方式。
 
 其中helm手动部署方式又分了三种场景，不同场景可以直接参考对应章节。
 
@@ -9,7 +9,7 @@
 
 场景3：仅需要更新某个pod内的image，保留其他pod或者数据库的情况下，可以参考章节[3.kubectl命令直接更新image](#3)
 
-# helm方式手动部署
+# <span id="helm">helm方式手动部署</span>
 
 ## <span id="1">1. helm方式首次部署</span>
 ### 1.1 环境准备
@@ -267,7 +267,7 @@ kubectl describe pod apphub-manager-64d478b66-mt7fh -n develop
 (2)然后根据原因相应修改，例如是CPU资源不足导致时，则需要修改CPU资源
 
 
-# catalog在线订阅部署
+# <span id="catalog_1">catalog在线订阅部署</span>
 
 **step1：首先登录catalog主页，选择AppHub**
 
