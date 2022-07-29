@@ -3,14 +3,15 @@
 
 其中helm手动部署方式又分了三种场景，不同场景可以直接参考对应章节。
 
-场景1：新新人在没有任何环境基础的情况下使用helm包部署，可以参考“1.helm方式首次部署”章节；
+场景1：新新人在没有任何环境基础的情况下使用helm包部署，可以参考[1. helm方式首次部署](#1)；
 
-场景2：之前已经helm部署过，现在想通过helm包完整的更新AppHub，可以参考“2.helm方式升级image等配置”章节
+场景2：之前已经helm部署过，现在想通过helm包完整的更新AppHub，可以参考[2. helm方式升级image等配置](#2)章节
 
-场景3：仅需要更新某个pod内的image，保留其他pod或者数据库的情况下，可以参考“3.kubectl命令直接更新image”章节
+场景3：仅需要更新某个pod内的image，保留其他pod或者数据库的情况下，可以参考[3.kubectl命令直接更新image](#3)章节
 
 # helm方式手动部署
-## 1. helm方式首次部署
+
+## <span id="1">1. helm方式首次部署</span>
 ### 1.1 环境准备
 #### (1) 安装kubectl
 
@@ -171,7 +172,8 @@ helm install apphub-manager –n $namespace .
 
 例如，本地demo部署命令如下： `helm install apphub-manager -n apphub .`
 
-## 2. helm方式升级image等配置
+
+## <span id="2">2. helm方式升级image等配置</span>
 
 ### 2.1 原部署环境仍然可用
 
@@ -214,7 +216,9 @@ helm upgrade apphub-manager –n $namespace .
 
 例如，本地demo部署命令如下： `helm upgrade apphub-manager -n apphub .`
 
-## 3. kubectl命令直接更新image
+
+## <span id="3">3. kubectl命令直接更新image</span>
+
 以修改apphub-manager的image为例说明
 ### (1)环境准备
 
