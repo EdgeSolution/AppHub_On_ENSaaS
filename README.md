@@ -228,6 +228,8 @@ apphub-repo-f767bd8f4-klgr2                           1/1     Running   0       
 ```
 #kubectl edit deployment apphub-manager -n apphub
 ```
+![image](https://user-images.githubusercontent.com/65381865/181678128-5522a1a4-7cc5-48e7-959c-b223f8002af3.png)
+
 修改后:wq，保存退出
 
 
