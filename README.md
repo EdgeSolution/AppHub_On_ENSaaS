@@ -204,7 +204,7 @@ helm upgrade apphub-manager –n $namespace .
 
 例如，本地demo部署命令如下： `helm upgrade apphub-manager -n apphub .`
 
-## 3. kubectl命令直接更新imager
+## 3. kubectl命令直接更新image
 以修改apphub-manager的image为例说明
 ### (1)环境准备
 
@@ -229,6 +229,9 @@ apphub-repo-f767bd8f4-klgr2                           1/1     Running   0       
 #kubectl edit deployment apphub-manager -n apphub
 ```
 修改后:wq，保存退出
+
+
+**补充说明：
 
 正常情况下，image会自动更新部署，我们可以通过`kubectl get pods -n develop`查看当前pod是否有创建更新。
 如果有异常，例如新的apphub-manager pod的状态为pending，需要先排查原因。
