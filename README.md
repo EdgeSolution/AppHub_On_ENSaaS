@@ -1,4 +1,9 @@
 # AppHub_On_EnSaaS
+本文档适用于部署AppHub到Wise-Paas公有云或私有云平台，包括helm手动部署方式和Catalog在线订阅部署两种方式。
+其中helm手动部署方式又分了三种场景，不同场景可以直接参考对应章节。
+场景1：新新人在没有任何环境基础的情况下适用helm包部署，可以参考“1.helm方式首次部署”章节；
+场景2：之前已经helm部署过，现在想通过helm包完整的更新AppHub，可以参考“2.helm方式升级imager等配置”章节
+场景3：仅需要更新某个pod内的image，保留其他pod或者数据库的情况下，可以参考“3.kubectl命令直接更新image”章节
 # helm方式手动部署
 ## 1. helm方式首次部署
 ### 1.1 环境准备
@@ -161,7 +166,7 @@ helm install apphub-manager –n $namespace .
 
 例如，本地demo部署命令如下： `helm install apphub-manager -n apphub .`
 
-## 2. helm方式imager版本升级部署
+## 2. helm方式升级imager等配置
 
 ### 2.1 原部署环境仍然可用
 
