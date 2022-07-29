@@ -1,6 +1,6 @@
 # AppHub_On_EnSaaS
 # helm方式手动部署
-## 1. 首次部署
+## 1. helm方式首次部署
 ### 1.1 环境准备
 #### (1) 安装kubectl
 
@@ -161,7 +161,7 @@ helm install apphub-manager –n $namespace .
 
 例如，本地demo部署命令如下： `helm install apphub-manager -n apphub .`
 
-## 2. imager版本升级部署
+## 2. helm方式imager版本升级部署
 
 ### 2.1 原部署环境仍然可用
 
@@ -203,6 +203,33 @@ helm upgrade apphub-manager –n $namespace .
 其中，namespace为实际要部署的目标命令空间名称。
 
 例如，本地demo部署命令如下： `helm upgrade apphub-manager -n apphub .`
+
+## 3. kubectl命令直接更新imager
+以修改apphub-manager的image为例说明
+### (1)环境准备
+
+假设已经有kubectl环境，仅需将config档拷贝到/root/.kube目录下，并重命名为config
+
+### (2)kubectl命令更新image
+以namespace为develop为例说明
+
+**step1：先查看当前namespace下面的pod，确认环境OK
+
+```
+#kubectl get pods -n develop
+...
+apphub-manager-7d65c89b8b-jscpq                       1/1     Running   0          14m
+apphub-repo-f767bd8f4-klgr2                           1/1     Running   0          170d
+...
+```
+**step2：edit deployment配置，修改apphub-manager的image
+```
+#kubectl edit deployment apphub-manager -n apphub
+```
+修改后:wq，保存退出
+
+正常情况下，image会自动更新部署，我们可以通过`kubectl get pods -n develop`查看当前pod是否有创建更新。
+如果有异常，例如新的apphub-manager pod的状态为pending
 
 # catalog在线订阅部署
 
