@@ -35,20 +35,20 @@ repo:
   urlPortal: http://portal-apphub-repo
 global:
   database:
-    secretName: apphub
+    secretName: apphub-manager-sg-secret
   ensaasApps:
     apiDccs: 
-      externalUrl: http://api-dccs-ensaas.hz.wise-paas.com.cn/v1
+      externalUrl: http://api-dccs-ensaas.labs.wise-paas.com.cn/v1
       internalUrl: http://api.dccs.ensaas.en.internal/v1   
     apiSso:
-      externalUrl: http://api-sso-ensaas.hz.wise-paas.com.cn/v4.0   
+      externalUrl: http://api-sso-ensaas.labs.wise-paas.com.cn/v4.0   
       internalUrl: http://api.sso.ensaas.en.internal/v4.0
     apiLicense:
-      externalUrl: https://api-license-ensaas.hz.wise-paas.com.cn/v1
+      externalUrl: https://api-license-ensaas.labs.wise-paas.com.cn/v1
       internalUrl: http://api.license.ensaas.en.internal/v1
     ensaas:
-      datacenterCode: hz
-      externalUrl: hz.wise-paas.com.cn
+      datacenterCode: labs
+      externalUrl: labs.wise-paas.com.cn
       internalUrl: en.internal
     licenseParam:
       pn: "980GWPAHA02"
@@ -56,10 +56,10 @@ global:
     
 
   url:
-    host: .apphub.eks001.en.internal
+    host: .apphub.ews001.en.internal
 #docker镜像
   manager:
-    repository: harbor.arfa.wise-paas.com/apphub/apphub-manager-ensaas
+    repository: harbor.arfa.wise-paas.com/apphub/apphub-manager-ensaas-itcm
     tag: v1.0.3
     pullPolicy: IfNotPresent
   repo:
@@ -77,6 +77,7 @@ global:
 # deploy in ensaas cloud
   env:
     type: cloud
+    protocol: https
   ingress:
     pathType: ImplementationSpecific
 

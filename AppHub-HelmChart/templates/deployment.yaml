@@ -31,6 +31,8 @@ spec:
           containerPort: 8080
           protocol: TCP
         env:
+        - name: protocol
+          value: {{ .Values.global.env.protocol }}
         - name: deployEnv
           value: {{ .Values.global.env.type }}
         - name: appName
